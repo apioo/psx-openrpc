@@ -1,0 +1,100 @@
+{
+  "openrpc": "1.3.0",
+  "info": {
+    "title": "Petstore",
+    "license": {
+      "name": "MIT"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http:\/\/localhost:8080"
+    }
+  ],
+  "methods": [
+    {
+      "name": "list_pets",
+      "tags": [
+        {
+          "name": "pets"
+        }
+      ],
+      "summary": "List all pets",
+      "params": [
+        {
+          "name": "limit",
+          "description": "How many items to return at one time (max 100)",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      ],
+      "result": {
+        "name": "pets",
+        "description": "A paged array of pets",
+        "schema": {
+          "$ref": "#\/components\/schemas\/Pets"
+        }
+      },
+      "errors": [
+        {
+          "code": 100,
+          "message": "pets busy"
+        }
+      ],
+      "examples": [
+        {
+          "name": "listPetExample",
+          "description": "List pet example",
+          "params": [
+            {
+              "name": "limit",
+              "value": 1
+            }
+          ],
+          "result": {
+            "name": "listPetResultExample",
+            "value": [
+              {
+                "id": 7,
+                "name": "fluffy",
+                "tag": "poodle"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Pet": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          }
+        }
+      },
+      "Pets": {
+        "type": "array",
+        "items": {
+          "$ref": "#\/components\/schemas\/Pet"
+        }
+      }
+    }
+  }
+}
