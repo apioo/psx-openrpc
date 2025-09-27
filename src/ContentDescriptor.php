@@ -4,9 +4,7 @@ declare(strict_types = 1);
 
 namespace PSX\OpenRPC;
 
-use PSX\Schema\Attribute\Required;
 
-#[Required(array('name', 'schema'))]
 class ContentDescriptor implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
     protected ?string $name = null;
@@ -15,55 +13,55 @@ class ContentDescriptor implements \JsonSerializable, \PSX\Record\RecordableInte
     protected ?bool $required = null;
     protected mixed $schema = null;
     protected ?bool $deprecated = null;
-    public function setName(?string $name) : void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
-    public function getName() : ?string
+    public function getName(): ?string
     {
         return $this->name;
     }
-    public function setSummary(?string $summary) : void
+    public function setSummary(?string $summary): void
     {
         $this->summary = $summary;
     }
-    public function getSummary() : ?string
+    public function getSummary(): ?string
     {
         return $this->summary;
     }
-    public function setDescription(?string $description) : void
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
-    public function getDescription() : ?string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
-    public function setRequired(?bool $required) : void
+    public function setRequired(?bool $required): void
     {
         $this->required = $required;
     }
-    public function getRequired() : ?bool
+    public function getRequired(): ?bool
     {
         return $this->required;
     }
-    public function setSchema(mixed $schema) : void
+    public function setSchema(mixed $schema): void
     {
         $this->schema = $schema;
     }
-    public function getSchema() : mixed
+    public function getSchema(): mixed
     {
         return $this->schema;
     }
-    public function setDeprecated(?bool $deprecated) : void
+    public function setDeprecated(?bool $deprecated): void
     {
         $this->deprecated = $deprecated;
     }
-    public function getDeprecated() : ?bool
+    public function getDeprecated(): ?bool
     {
         return $this->deprecated;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -75,7 +73,7 @@ class ContentDescriptor implements \JsonSerializable, \PSX\Record\RecordableInte
         $record->put('deprecated', $this->deprecated);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

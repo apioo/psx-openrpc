@@ -16,63 +16,63 @@ class Components implements \JsonSerializable, \PSX\Record\RecordableInterface
     protected ?Errors $errors = null;
     protected ?ExamplePairingObjects $examplePairingObjects = null;
     protected ?Tags $tags = null;
-    public function setContentDescriptors(?ContentDescriptors $contentDescriptors) : void
+    public function setContentDescriptors(?ContentDescriptors $contentDescriptors): void
     {
         $this->contentDescriptors = $contentDescriptors;
     }
-    public function getContentDescriptors() : ?ContentDescriptors
+    public function getContentDescriptors(): ?ContentDescriptors
     {
         return $this->contentDescriptors;
     }
-    public function setSchemas(?\PSX\OpenAPI\Schemas $schemas) : void
+    public function setSchemas(?\PSX\OpenAPI\Schemas $schemas): void
     {
         $this->schemas = $schemas;
     }
-    public function getSchemas() : ?\PSX\OpenAPI\Schemas
+    public function getSchemas(): ?\PSX\OpenAPI\Schemas
     {
         return $this->schemas;
     }
-    public function setExamples(?\PSX\OpenAPI\Examples $examples) : void
+    public function setExamples(?\PSX\OpenAPI\Examples $examples): void
     {
         $this->examples = $examples;
     }
-    public function getExamples() : ?\PSX\OpenAPI\Examples
+    public function getExamples(): ?\PSX\OpenAPI\Examples
     {
         return $this->examples;
     }
-    public function setLinks(?Links $links) : void
+    public function setLinks(?Links $links): void
     {
         $this->links = $links;
     }
-    public function getLinks() : ?Links
+    public function getLinks(): ?Links
     {
         return $this->links;
     }
-    public function setErrors(?Errors $errors) : void
+    public function setErrors(?Errors $errors): void
     {
         $this->errors = $errors;
     }
-    public function getErrors() : ?Errors
+    public function getErrors(): ?Errors
     {
         return $this->errors;
     }
-    public function setExamplePairingObjects(?ExamplePairingObjects $examplePairingObjects) : void
+    public function setExamplePairingObjects(?ExamplePairingObjects $examplePairingObjects): void
     {
         $this->examplePairingObjects = $examplePairingObjects;
     }
-    public function getExamplePairingObjects() : ?ExamplePairingObjects
+    public function getExamplePairingObjects(): ?ExamplePairingObjects
     {
         return $this->examplePairingObjects;
     }
-    public function setTags(?Tags $tags) : void
+    public function setTags(?Tags $tags): void
     {
         $this->tags = $tags;
     }
-    public function getTags() : ?Tags
+    public function getTags(): ?Tags
     {
         return $this->tags;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -85,7 +85,7 @@ class Components implements \JsonSerializable, \PSX\Record\RecordableInterface
         $record->put('tags', $this->tags);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

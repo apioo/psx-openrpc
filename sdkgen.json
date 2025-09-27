@@ -1,0 +1,12 @@
+{
+  "type": "model-php",
+  "require": {
+    "./spec/typeschema.json": {
+      "target": "./src",
+      "namespace": "PSX\\OpenRPC",
+      "mapping": {
+        "openapi": "PSX\\OpenAPI"
+      }
+    }
+  }
+}

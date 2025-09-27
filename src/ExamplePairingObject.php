@@ -17,50 +17,53 @@ class ExamplePairingObject implements \JsonSerializable, \PSX\Record\RecordableI
      */
     protected ?array $params = null;
     protected ?ExampleObject $result = null;
-    public function setName(?string $name) : void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
-    public function getName() : ?string
+    public function getName(): ?string
     {
         return $this->name;
     }
-    public function setDescription(?string $description) : void
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
-    public function getDescription() : ?string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
-    public function setSummary(?string $summary) : void
+    public function setSummary(?string $summary): void
     {
         $this->summary = $summary;
     }
-    public function getSummary() : ?string
+    public function getSummary(): ?string
     {
         return $this->summary;
     }
     /**
      * @param array<ExampleObject>|null $params
      */
-    public function setParams(?array $params) : void
+    public function setParams(?array $params): void
     {
         $this->params = $params;
     }
-    public function getParams() : ?array
+    /**
+     * @return array<ExampleObject>|null
+     */
+    public function getParams(): ?array
     {
         return $this->params;
     }
-    public function setResult(?ExampleObject $result) : void
+    public function setResult(?ExampleObject $result): void
     {
         $this->result = $result;
     }
-    public function getResult() : ?ExampleObject
+    public function getResult(): ?ExampleObject
     {
         return $this->result;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -71,7 +74,7 @@ class ExamplePairingObject implements \JsonSerializable, \PSX\Record\RecordableI
         $record->put('result', $this->result);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }

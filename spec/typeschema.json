@@ -1,6 +1,6 @@
 {
   "$import": {
-    "openapi": "file:////vendor/psx/openapi/typeschema.json"
+    "openapi": "https://raw.githubusercontent.com/apioo/psx-openapi/main/spec/typeschema.json"
   },
   "definitions": {
     "OpenRPC": {
@@ -63,26 +63,14 @@
         },
         "params": {
           "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "ContentDescriptor"
-              },
-              {
-                "$ref": "openapi:Reference"
-              }
-            ]
+          "schema": {
+            "type": "reference",
+            "target": "ContentDescriptor"
           }
         },
         "result": {
-          "oneOf": [
-            {
-              "$ref": "ContentDescriptor"
-            },
-            {
-              "$ref": "openapi:Reference"
-            }
-          ]
+          "type": "reference",
+          "target": "ContentDescriptor"
         },
         "deprecated": {
           "type": "boolean"
@@ -95,28 +83,16 @@
         },
         "errors": {
           "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "Error"
-              },
-              {
-                "$ref": "openapi:Reference"
-              }
-            ]
+          "schema": {
+            "type": "reference",
+            "target": "Error"
           }
         },
         "links": {
           "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "Link"
-              },
-              {
-                "$ref": "openapi:Reference"
-              }
-            ]
+          "schema": {
+            "type": "reference",
+            "target": "Link"
           }
         },
         "paramStructure": {

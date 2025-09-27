@@ -15,55 +15,55 @@ class Link implements \JsonSerializable, \PSX\Record\RecordableInterface
     protected ?string $method = null;
     protected ?Params $params = null;
     protected ?\PSX\OpenAPI\Server $server = null;
-    public function setName(?string $name) : void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
-    public function getName() : ?string
+    public function getName(): ?string
     {
         return $this->name;
     }
-    public function setDescription(?string $description) : void
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
-    public function getDescription() : ?string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
-    public function setSummary(?string $summary) : void
+    public function setSummary(?string $summary): void
     {
         $this->summary = $summary;
     }
-    public function getSummary() : ?string
+    public function getSummary(): ?string
     {
         return $this->summary;
     }
-    public function setMethod(?string $method) : void
+    public function setMethod(?string $method): void
     {
         $this->method = $method;
     }
-    public function getMethod() : ?string
+    public function getMethod(): ?string
     {
         return $this->method;
     }
-    public function setParams(?Params $params) : void
+    public function setParams(?Params $params): void
     {
         $this->params = $params;
     }
-    public function getParams() : ?Params
+    public function getParams(): ?Params
     {
         return $this->params;
     }
-    public function setServer(?\PSX\OpenAPI\Server $server) : void
+    public function setServer(?\PSX\OpenAPI\Server $server): void
     {
         $this->server = $server;
     }
-    public function getServer() : ?\PSX\OpenAPI\Server
+    public function getServer(): ?\PSX\OpenAPI\Server
     {
         return $this->server;
     }
-    public function toRecord() : \PSX\Record\RecordInterface
+    public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = new \PSX\Record\Record();
@@ -75,7 +75,7 @@ class Link implements \JsonSerializable, \PSX\Record\RecordableInterface
         $record->put('server', $this->server);
         return $record;
     }
-    public function jsonSerialize() : object
+    public function jsonSerialize(): object
     {
         return (object) $this->toRecord()->getAll();
     }
