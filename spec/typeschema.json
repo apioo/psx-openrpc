@@ -9,7 +9,7 @@
       "properties": {
         "openrpc": {
           "type": "string",
-          "const": "1.3.0"
+          "default": "1.3.0"
         },
         "info": {
           "$ref": "openapi:Info"
@@ -101,8 +101,7 @@
             "by-name",
             "by-position",
             "either"
-          ],
-          "default": "by-name"
+          ]
         },
         "examples": {
           "type": "array",
